@@ -9,3 +9,51 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Food {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  avatarUrl   String?
+  description String?
+
+  status     Status              @relation(fields: [statusId], references: [id])
+  statusId   Int
+  categories FoodHasCategories[]
+}
+
+model FoodHasCategories {
+  isMain     Boolean  @default(false)
+  
+  Food       Food     @relation(fields: [foodId], references: [id])
+  foodId     String
+  Category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([foodId, categoryId])
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  avatarUrl   String
+  description String
+
+  status   Status              @relation(fields: [statusId], references: [id])
+  statusId Int
+  foods    FoodHasCategories[]
+}
+
+model Status {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  overall String
+  advice  String
+
+  foods      Food[]
+  categories Category[]
+}
