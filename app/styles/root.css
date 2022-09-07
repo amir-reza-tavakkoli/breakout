@@ -31,13 +31,32 @@
 
 :where(html, body) {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 
-:where(body) {
+:where(html) {
     background: linear-gradient(var(--angle-oblique), var(--color-priamry-1), var(--color-priamry-2));
 }
 
 :where(*) {
     font-family: "inter", 'Courier New', Courier;
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+@media (min-width : 400px) {
+    .main {
+        width: max(75%, 400px);
+        max-width: calc(700px + 15vw);
+
+    }
 }

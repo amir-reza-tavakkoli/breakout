@@ -23,18 +23,24 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
+      <html lang="en">
+          <head>
+              <Meta />
+              <Links />
+              <link
+                  rel="shortcut icon"
+                  href="favicon.png"
+                  type="image/x-icon"
+              />
+          </head>
+          <body>
+              <main className="main">
+                  <Outlet />
+                  <ScrollRestoration />
+                  <Scripts />
+                  <LiveReload />
+              </main>
+          </body>
+      </html>
   );
 }
