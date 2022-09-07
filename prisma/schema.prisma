@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Food {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  avatarUrl   String?
+  description String?
+
+  status     Status              @relation(fields: [statusId], references: [id])
+  statusId   Int
+  categories FoodHasCategories[]
+}
+
+model FoodHasCategories {
+  isMain     Boolean  @default(false)
+
+  food       Food     @relation(fields: [foodId], references: [id])
+  foodId     String
+  category   Category @relation(fields: [categoryId], references: [name])
+  categoryId String
+
+  @@id([foodId, categoryId])
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String  @unique
+  avatarUrl   String
+  description String
+
+  status   Status              @relation(fields: [statusId], references: [id])
+  statusId Int
+  foods    FoodHasCategories[]
+}
+
+model Status {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  overall String  @unique
+  advice  String
+
+  foods      Food[]
+  categories Category[]
+}

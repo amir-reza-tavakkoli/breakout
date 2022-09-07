@@ -4,7 +4,8 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|jsx|tsx|css|ts)\""
   },
   "dependencies": {
     "@prisma/client": "^4.3.1",
