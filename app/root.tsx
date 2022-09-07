@@ -1,12 +1,19 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
+    Links,
+    LiveReload,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
 } from "@remix-run/react";
+
+import stylesUrl from "~/styles/root.css";
+import base from "~/../node_modules/sanitize.css/sanitize.css";
+
+export const links: LinksFunction = () => {
+    return [{ rel: "stylesheet", href: stylesUrl }, {rel : "stylesheet", href : base}]
+};
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -20,6 +27,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
       </head>
       <body>
         <Outlet />
