@@ -25,11 +25,11 @@ model Food {
 
 model FoodHasCategories {
   isMain     Boolean  @default(false)
-  
-  Food       Food     @relation(fields: [foodId], references: [id])
+
+  food       Food     @relation(fields: [foodId], references: [id])
   foodId     String
-  Category   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [name])
+  categoryId String
 
   @@id([foodId, categoryId])
 }
@@ -38,7 +38,7 @@ model Category {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  name        String
+  name        String  @unique
   avatarUrl   String
   description String
 
@@ -51,7 +51,7 @@ model Status {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  overall String
+  overall String  @unique
   advice  String
 
   foods      Food[]
