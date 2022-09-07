@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "inter";
+    src: url("/fonts/inter.woff2") format("woff2");
+}
+
+:where(:root) {
+    --length-1: 0.0625rem;
+    --length-2: 0.125rem;
+    --length-4: 0.25rem;
+    --length-6: 0.375rem;
+    --length-8: 0.5rem;
+    --length-12: 0.75rem;
+    --length-16: 1rem;
+    --length-20: 1.25rem;
+    --length-24: 1.5rem;
+    --length-32: 2rem;
+    --length-48: 3rem;
+    --length-64: 4rem;
+    --length-80: 5rem;
+    --length-coarse-min: 40px;
+
+    --length-static-thin: 0.5px;
+    --length-static-normal: 1px;
+    --length-static-thick: 1.5px;
+    --length-static-extra-thick: 3px;
+
+    --angle-oblique: 135deg;
+    --color-priamry-1: #F3EFE5;
+    --color-priamry-2: #AB9E79;
+}
+
+:where(html, body) {
+    width: 100%;
+    min-height: 100%;
+}
+
+:where(body) {
+    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1), var(--color-priamry-2));
+}
+
+:where(*) {
+    font-family: "inter", 'Courier New', Courier;
+}
