@@ -5,7 +5,8 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|jsx|tsx|css|ts)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|jsx|tsx|css|ts)\"",
+    "seed": "node --loader ts-node/esm ./prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^4.3.1",

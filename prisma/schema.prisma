@@ -11,49 +11,38 @@ datasource db {
 }
 
 model Food {
-  id          String   @id @default(uuid())
+  id Int @id @default(autoincrement())
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  name        String
+  name        String   @unique
   avatarUrl   String?
   description String?
 
-  status     Status              @relation(fields: [statusId], references: [id])
-  statusId   Int
-  categories FoodHasCategories[]
-}
-
-model FoodHasCategories {
-  isMain     Boolean  @default(false)
-
-  food       Food     @relation(fields: [foodId], references: [id])
-  foodId     String
-  category   Category @relation(fields: [categoryId], references: [name])
-  categoryId String
-
-  @@id([foodId, categoryId])
-}
-
-model Category {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  name        String  @unique
-  avatarUrl   String
-  description String
-
-  status   Status              @relation(fields: [statusId], references: [id])
+  status   Status @relation(fields: [statusId], references: [id])
   statusId Int
-  foods    FoodHasCategories[]
+
+  isCategory  Boolean     @default(true)
+  predecessor Hierarchy[] @relation("predecessor")
+  successor   Hierarchy[] @relation("successor")
+}
+
+model Hierarchy {
+  predecessor   Food @relation("predecessor", fields: [predecessorId], references: [id])
+  predecessorId Int
+  successor     Food @relation("successor", fields: [successorId], references: [id])
+  successorId   Int
+
+  @@id([successorId, predecessorId])
 }
 
 model Status {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  overall String  @unique
-  advice  String
+  overall   String   @unique
+  advice    String
 
-  foods      Food[]
-  categories Category[]
+  foods Food[]
+  // categories Category[]
 }

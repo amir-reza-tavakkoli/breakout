@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.category.create({
+  await prisma.food.create({
     data: {
       name: "Fast food",
       description: "Really bad",
@@ -18,10 +18,26 @@ async function main() {
           },
         },
       },
+      successor: {
+        create: {
+          predecessor: {
+            create: {
+              name: "Pizza",
+              isCategory: false,
+              avatarUrl: "",
+              description: "Contains cheese",
+              status: {
+                connect: {
+                  overall: "Detrimental",
+                },
+              },
+            },
+          },
+        },
+      },
     },
   });
-
-  await prisma.category.create({
+  await prisma.food.create({
     data: {
       name: "Fruit",
       description: "Generally, good",
@@ -37,56 +53,46 @@ async function main() {
           },
         },
       },
-    },
-  });
-
-  await prisma.food.create({
-    data: {
-      name: "Apple",
-      avatarUrl: "",
-      description: "Smells good and benefits your guts",
-      status: {
-        connectOrCreate: {
-          where: {
-            overall: "Beneficial",
-          },
-          create: {
-            overall: "Beneficial",
-            advice: "Take it more frequently",
-          },
-        },
-      },
-      categories: {
+      successor: {
         create: {
-          category: {
-            connect: { name: "Fruit" },
+          predecessor: {
+            create: {
+              name: "Apple",
+              isCategory: false,
+              avatarUrl: "",
+              description: "Full of vitamins",
+              status: {
+                connect: {
+                  overall: "Beneficial",
+                },
+              },
+            },
           },
-          isMain: true,
         },
       },
     },
   });
 
-  await prisma.food.create({
-    data: {
-      name: "Pizza",
-      avatarUrl: "",
-      description: "Contains cheese",
-      status: {
-        connect: {
-          overall: "Detrimental",
-        },
-      },
-      categories: {
-        create: {
-          category: {
-            connect: { name: "Fast food" },
-          },
-          isMain: true,
-        },
-      },
-    },
-  });
+  // await prisma.food.create({
+  //   data: {
+  //     name: "Pizza",
+  //     avatarUrl: "",
+  //     description: "Contains cheese",
+  //     status: {
+  //       connect: {
+  //         overall: "Detrimental",
+  //       },
+  //     },
+  //     // categories: {
+  //     //   create: {
+  //     //     category: {
+  //     //       connect: { name: "Fast food" },
+  //     //     },
+  //     //     isMain: true,
+  //     //   },
+  //     // },
+  //   },
+  // });
 }
 
 main()
