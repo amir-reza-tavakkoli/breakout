@@ -11,7 +11,8 @@ datasource db {
 }
 
 model Food {
-  id          String   @id @default(uuid())
+  id Int @id @default(autoincrement())
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   name        String   @unique
@@ -27,37 +28,13 @@ model Food {
 }
 
 model Hierarchy {
-  predecessor   Food   @relation("predecessor", fields: [predecessorId], references: [id])
-  predecessorId String
-  successor     Food   @relation("successor", fields: [successorId], references: [id])
-  successorId   String
+  predecessor   Food @relation("predecessor", fields: [predecessorId], references: [id])
+  predecessorId Int
+  successor     Food @relation("successor", fields: [successorId], references: [id])
+  successorId   Int
 
   @@id([successorId, predecessorId])
 }
-
-// model FoodHasCategories {
-//   isMain     Boolean  @default(false)
-
-//   food       Food     @relation(fields: [foodId], references: [id])
-//   foodId     String
-//   category   Category @relation(fields: [categoryId], references: [name])
-//   categoryId String
-
-//   @@id([foodId, categoryId])
-// }
-
-// model Category {
-//   id          Int      @id @default(autoincrement())
-//   createdAt   DateTime @default(now())
-//   updatedAt   DateTime @updatedAt
-//   name        String  @unique
-//   avatarUrl   String
-//   description String
-
-//   status   Status              @relation(fields: [statusId], references: [id])
-//   statusId Int
-//   // foods    FoodHasCategories[]
-// }
 
 model Status {
   id        Int      @id @default(autoincrement())
