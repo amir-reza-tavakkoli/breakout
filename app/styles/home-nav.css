@@ -8,7 +8,6 @@
 
 .nav img {
     --optical-alignment : 5px;
-    
     inline-size: clamp(100px, -2.5rem + 40vw, 120px);
     max-inline-size: 100%;
     block-size: clamp(100px, -2.5rem + 40vw, 120px);

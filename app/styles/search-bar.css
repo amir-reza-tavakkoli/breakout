@@ -1,0 +1,50 @@
+.search {
+    inline-size: 100%;
+    min-block-size: 150px;
+    block-size: min-content;
+    position: absolute;
+    inset-block-end: -24px;
+    margin-block-end: -6px;
+}
+
+.search form {
+    display: flex;
+    justify-content: center;
+}
+
+.search button svg {
+    inline-size: 50%;
+    block-size: 50%;
+}
+
+.search button {
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+    border-radius: 10000px;
+    border: none;
+    inline-size: clamp(30px, -2.5rem + 45vw, 80px);
+    block-size: clamp(30px, -2.5rem + 45vw, 80px);
+    margin: 0.75rem;
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 1.25rem;
+    background-color: #F3EFE5;
+}
+
+.search input {
+    flex-grow: 1;
+    padding-left: 3rem;
+    margin: 0.75rem;
+    margin-inline-start: 1.25rem;
+    min-inline-size: 40px;
+    border-radius: 10000px;
+    border: none;
+    flex-grow: 1;
+    padding-block: 1.8rem;
+}
+
+@media (min-width : 400px) {
+    .search button {
+
+    }
+}
