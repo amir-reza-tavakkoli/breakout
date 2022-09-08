@@ -1,0 +1,20 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    inline-size: 100%;
+    max-block-size: min-content;
+    padding-block: var(--length-16);
+}
+
+.nav img {
+    --optical-alignment : 5px;
+    
+    inline-size: clamp(100px, -2.5rem + 40vw, 120px);
+    max-inline-size: 100%;
+    block-size: clamp(100px, -2.5rem + 40vw, 120px);
+    aspect-ratio: 1/1;
+    padding-inline-end: var(--optical-alignment);
+    border-radius: 10000px;
+    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1), var(--color-priamry-3));
+    transform: rotate(-15deg);
+}
