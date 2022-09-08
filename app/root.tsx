@@ -33,6 +33,7 @@ export const meta: MetaFunction = () => ({
     viewport: "width=device-width,initial-scale=1",
 });
 
+
 export default function App() {
     return (
         <html lang="en">
@@ -46,11 +47,12 @@ export default function App() {
                     <HomeNav />
                     <Outlet />
                     <ScrollRestoration />
-                    <Scripts />
                     <LiveReload />
                     <SearchBar />
                 </main>
+
             </body>
+                    <Scripts />
         </html>
     );
 }
