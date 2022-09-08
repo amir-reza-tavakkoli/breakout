@@ -33,6 +33,7 @@
 :where(html, body) {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 :where(html) {
@@ -42,6 +43,11 @@
 :where(*) {
     font-family: "inter", 'Courier New', Courier;
     box-sizing: border-box;
+}
+
+*:focus-visible {
+    outline: var(--color-priamry-3) 3px dashed;
+
 }
 
 body {
