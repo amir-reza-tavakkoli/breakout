@@ -1,15 +1,18 @@
 .search {
+    margin-inline-start: auto;
     inline-size: 100%;
     min-block-size: 150px;
     block-size: min-content;
-    position: absolute;
-    inset-block-end: -24px;
+    position: fixed;
+    inset-block-end: 0px;
     margin-block-end: -6px;
+    backdrop-filter: blur(100000px);
 }
 
 .search form {
     display: flex;
     justify-content: center;
+    margin-top: 32px;
 }
 
 .search button svg {
@@ -18,33 +21,64 @@
 }
 
 .search button {
+    box-shadow:
+        var(--shadow-high);
     flex-grow: 0;
     flex-shrink: 0;
     align-self: center;
     border-radius: 10000px;
     border: none;
-    inline-size: clamp(30px, -2.5rem + 45vw, 80px);
-    block-size: clamp(30px, -2.5rem + 45vw, 80px);
+    inline-size: clamp(60px, 12vw + 0.875rem, 80px);
+    block-size: clamp(60px, 12vw + 0.875rem, 80px);
     margin: 0.75rem;
     margin-inline-start: 0.5rem;
     margin-inline-end: 1.25rem;
-    background-color: #F3EFE5;
+    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1) 0 20%, var(--color-priamry-3)) 20% 100%;
 }
 
 .search input {
     flex-grow: 1;
-    padding-left: 3rem;
+    padding-left: 2rem;
     margin: 0.75rem;
     margin-inline-start: 1.25rem;
     min-inline-size: 40px;
     border-radius: 10000px;
+    block-size: clamp(60px, 12vw + 0.875rem, 80px);
     border: none;
     flex-grow: 1;
     padding-block: 1.8rem;
+    padding-right: 0.75rem;
+    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1) 0 20%, var(--color-priamry-3)) 20% 100%;
+    box-shadow:
+        var(--shadow-high);
 }
 
-@media (min-width : 400px) {
+@media (min-width : 550px) {
+    .search form {
+        margin-top: 12px;
+        width: max(90%, 400px);
+        max-width: calc(700px + 14vw);
+
+    }
+
     .search button {
+        inline-size: clamp(80px, -2.5rem + 45vw, 100px);
+        block-size: clamp(80px, -2.5rem + 45vw, 100px);
+    }
+
+    .search input {
+        block-size: clamp(80px, -2.5rem + 45vw, 100px);
+        padding-right: 1.25rem;
+    }
+}
+
+@media (min-width : 550px) {
+    .search {
+        display: flex;
+        justify-content: center;
+        /* width: max(90%, 400px);
+        max-width: calc(700px + 14vw); */
+        /* backdrop-filter: none; */
 
     }
 }
