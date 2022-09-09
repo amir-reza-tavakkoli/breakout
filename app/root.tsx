@@ -1,4 +1,9 @@
-import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import {
+    MetaFunction,
+    LinksFunction,
+    redirect,
+    ActionFunction,
+} from "@remix-run/node";
 import {
     Link,
     Links,
@@ -7,6 +12,7 @@ import {
     Outlet,
     Scripts,
     ScrollRestoration,
+    useActionData,
 } from "@remix-run/react";
 
 import icon from "~/../public/favicon.png";
@@ -27,14 +33,31 @@ export const links: LinksFunction = () => {
     ];
 };
 
+export const action: ActionFunction = async ({ request }) => {
+    const form = await request.formData();
+    const name = form.get("search");
+    // const content = form.get("content");
+    // we do this type check to be extra sure and to make TypeScript happy
+    // we'll explore validation next!
+    // if (typeof name !== "string" || typeof content !== "string") {
+    //     throw new Error(`Form not submitted correctly.`);
+    // }
+
+    // const fields = { name, content };
+    console.log(name);
+
+    // const joke = await db.joke.create({ data: fields });
+    return redirect(`/food/${name}`);
+};
+
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
     title: "Breakout",
     viewport: "width=device-width,initial-scale=1",
 });
 
-
 export default function App() {
+    const data = useActionData();
     return (
         <html lang="en">
             <head>
@@ -48,11 +71,10 @@ export default function App() {
                     <Outlet />
                     <ScrollRestoration />
                     <LiveReload />
-                    <SearchBar />
                 </main>
-
+                    <SearchBar />
             </body>
-                    <Scripts />
+            <Scripts />
         </html>
     );
 }
