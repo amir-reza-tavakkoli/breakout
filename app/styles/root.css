@@ -28,6 +28,15 @@
     --color-priamry-1: #F3EFE5;
     --color-priamry-2: #AB9E79;
     --color-priamry-3: #7d7662;
+    --color-priamry-4: #232020;
+    --color-text: #444;
+    --shadow-high: 1px 1.4px 2.9px -8px rgba(0, 0, 0, 0.015),
+        2.3px 3.2px 6.6px -8px rgba(0, 0, 0, 0.022),
+        4.1px 5.8px 11.9px -8px rgba(0, 0, 0, 0.028),
+        6.7px 9.6px 19.8px -8px rgba(0, 0, 0, 0.032),
+        11.1px 15.9px 32.5px -8px rgba(0, 0, 0, 0.038),
+        19.4px 27.7px 56.9px -8px rgba(0, 0, 0, 0.045),
+        42px 60px 123px -8px rgba(0, 0, 0, 0.06);
 }
 
 :where(html, body) {
@@ -42,6 +51,7 @@
 
 :where(*) {
     font-family: "inter", 'Courier New', Courier;
+    color: var(--color-text);
     box-sizing: border-box;
 }
 
@@ -50,6 +60,14 @@
 
 }
 
+ol, ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    text-decoration: underline dashed var(--color-priamry-3);
+}
 body {
     display: grid;
     place-items: center;
@@ -68,9 +86,13 @@ body {
 
 .main {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     background-color: rgba(156, 83, 83, 0.065);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
 }
 
 @media (min-width : 550px) {
