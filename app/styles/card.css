@@ -1,0 +1,62 @@
+.card>dl {
+    border-radius: 55px;
+    width: 90%;
+    max-height: 700px;
+    /* max-height: 50%; */
+    display: grid;
+    background-color: bisque;
+    margin-inline: auto;
+
+    gap: 8px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(20px, auto);
+    grid-template-areas:
+        "e3 e3 e3 e3 e3 e3 e3"
+        "e4 e4 e4 e4 i i e2"
+        "n  n  n  n  i  i  e2"
+        "o  o  o  o  i  i  e2"
+        "a  a  a  a  a  a  e2"
+        "a  a  a  a  a  a  e2"
+        "t  t  t  t  t  t  e2"
+        "d  d  d  d  d  d  e2"
+        "d  d  d  d  d  d  e2"
+        "d  d  d  d  d  d  e2";
+
+}
+
+.name {
+    /* grid-area: 2/2/auto/span 1; */
+    grid-area: n;
+}
+
+.card .img {
+    margin-left: auto;
+    grid-area: i;
+    width: 5rem;
+    height: 5rem;
+}
+
+.card .advice {
+    grid-area: a;
+    /* width: max-content; */
+}
+
+.card .description {
+    grid-area: d;
+}
+
+.card .overall {
+    grid-area: o;
+}
+
+
+.card .list {
+    display: inline;
+    grid-area: t;
+}
+.card li {
+    max-width: max-content;
+    border-radius: 10000px;
+    background-color: var(--color-priamry-2);
+    padding-inline: 8px;
+}
