@@ -1,84 +1,114 @@
-.search {
-    margin-inline-start: auto;
-    inline-size: 100%;
-    min-block-size: 150px;
-    block-size: min-content;
+:where(.search) {
+    /* display: flex; */
+    justify-content: center;
     position: fixed;
     inset-block-end: 0px;
+    inline-size: 100%;
+    block-size: min-content;
+    min-block-size: 100px;
+    margin-inline-start: auto;
     margin-block-end: -6px;
-    backdrop-filter: blur(100000px);
+    backdrop-filter: blur(var(--length-max));
 }
 
-.search form {
+:where(.search form) {
     display: flex;
     justify-content: center;
-    margin-top: 32px;
+    margin-block: min(28px, var(--length-16));
 }
 
-.search button svg {
-    inline-size: 50%;
-    block-size: 50%;
-}
-
-.search button {
-    box-shadow:
-        var(--shadow-high);
+:where(.search button) {
+    box-shadow: var(--shadow-high);
     flex-grow: 0;
     flex-shrink: 0;
     align-self: center;
-    border-radius: 10000px;
+    border-radius: var(--length-max);
     border: none;
     inline-size: clamp(60px, 12vw + 0.875rem, 80px);
     block-size: clamp(60px, 12vw + 0.875rem, 80px);
     margin: 0.75rem;
     margin-inline-start: 0.5rem;
     margin-inline-end: 1.25rem;
-    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1) 0 20%, var(--color-priamry-3)) 20% 100%;
+    background: linear-gradient(var(--angle-oblique),
+            var(--color-priamry-1) 0 20%,
+            var(--color-priamry-3)) 20% 100%;
 }
 
-.search input {
+:where(.search button svg) {
+    inline-size: 50%;
+    block-size: 50%;
+}
+
+:where(.search input) {
     flex-grow: 1;
-    padding-left: 2rem;
-    margin: 0.75rem;
-    margin-inline-start: 1.25rem;
-    min-inline-size: 40px;
-    border-radius: 10000px;
     block-size: clamp(60px, 12vw + 0.875rem, 80px);
-    border: none;
-    flex-grow: 1;
+    min-inline-size: 40px;
+    margin-inline: 0.75rem;
+    margin-block: 0.75rem;
+    margin-inline-start: 1.25rem;
+    padding-inline-start: 2rem;
     padding-block: 1.8rem;
-    padding-right: 0.75rem;
-    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1) 0 20%, var(--color-priamry-3)) 20% 100%;
-    box-shadow:
-        var(--shadow-high);
+    padding-inline-end: 0.75rem;
+    border: none;
+    border-radius: var(--length-max);
+    background: linear-gradient(var(--angle-oblique),
+            var(--color-priamry-1) 0 20%,
+            var(--color-priamry-3)) 20% 100%;
+    box-shadow: var(--shadow-high);
 }
 
-@media (min-width : 550px) {
-    .search form {
-        margin-top: 12px;
-        width: max(90%, 400px);
-        max-width: calc(700px + 14vw);
-
-    }
-
-    .search button {
-        inline-size: clamp(80px, -2.5rem + 45vw, 100px);
-        block-size: clamp(80px, -2.5rem + 45vw, 100px);
-    }
-
-    .search input {
-        block-size: clamp(80px, -2.5rem + 45vw, 100px);
-        padding-right: 1.25rem;
-    }
-}
-
-@media (min-width : 550px) {
-    .search {
+@media (min-width: 34.375rem) {
+    :where(.search) {
         display: flex;
         justify-content: center;
-        /* width: max(90%, 400px);
-        max-width: calc(700px + 14vw); */
-        /* backdrop-filter: none; */
-
     }
+
+    :where(.search form) {
+        margin-block-start: min(var(--length-12), 24px);
+        inline-size: max(90%, var(--length-min-layout));
+        max-inline-size: calc(var(--length-medium-layout) + 14vw);
+    }
+
+    :where(.search button) {
+        inline-size: var(--length-fluid-medium);
+        block-size: var(--length-fluid-medium);
+    }
+
+    :where(.search input) {
+        block-size: var(--length-fluid-medium);
+        padding-inline-end: 1.25rem;
+    }
+}
+
+:where(.search .popup) {
+    inline-size: max(50%, var(--length-min-layout));
+    max-inline-size: calc(var(--length-medium-layout) + 14vw);
+    block-size: max-content;
+    max-block-size: 25vh;
+    padding-block: 1rem;
+    background: linear-gradient(var(--angle-oblique),
+            var(--color-gray),
+            var(--color-priamry-1),
+            var(--color-priamry-3));
+    position: absolute;
+    top: 0px;
+    transform: translateY(-100%);
+    border-radius: min(var(--length-48), 48px);
+    padding-inline: 5rem;
+    overflow: auto;
+    margin-inline: auto;
+
+}
+
+:where(.search .popup li) {
+    padding-inline: min(100px, var(--length-80));
+    /* background-color: rgba(209, 209, 209, 0.157); */
+    /* background-color: var(--color-priamry-1); */
+    /* border-radius: var(--length-max); */
+    /* background: linear-gradient(var(--angle-oblique),
+            var(--color-gray),
+            var(--color-priamry-1),
+            var(--color-priamry-1)); */
+    /* box-shadow: var(--shadow-high); */
+    margin-block: min(16px, var(--length-8));
 }

@@ -1,45 +1,42 @@
-.nav {
-    display: flex;
-    justify-content: center;
-    inline-size: 100%;
-    max-block-size: min-content;
-    padding-block: var(--length-16);
+:where(.nav) {
+  display: flex;
+  justify-content: center;
+  inline-size: 100%;
+  max-block-size: min-content;
+  padding-block: min(var(--length-16), 24px);
 }
 
-.nav a {
-    border-radius: 10000px;
-
-
+:where(.nav a) {
+  border-radius: var(--length-max);
+  position: relative;
 }
 
-.nav img {
-    --optical-alignment: 5px;
-    inline-size: clamp(70px, -2.5rem + 35vw, 80px);
+:where(.nav img) {
+  --optical-alignment: 4px;
+
+  inline-size: var(--length-fluid-small);
+  max-inline-size: 100%;
+  block-size: var(--length-fluid-small);
+  padding-inline-end: var(--optical-alignment);
+  aspect-ratio: 1/1;
+  background: linear-gradient(var(--angle-oblique),
+      var(--color-priamry-1),
+      var(--color-priamry-3));
+  transform: rotate(-16deg);
+  border-radius: var(--length-max);
+  box-shadow: var(--shadow-high);
+}
+
+:where(.nav .blurry) {
+  position: absolute;
+  filter: blur(40px);
+  transform: scale(2);
+}
+
+@media (min-width: 34.375rem) {
+  :where(.nav img) {
+    inline-size: var(--length-fluid-medium);
     max-inline-size: 100%;
-    block-size: clamp(70px, -2.5rem + 35vw, 80px);
-    aspect-ratio: 1/1;
-    border-radius: 10000px;
-    padding-inline-end: var(--optical-alignment);
-    background: linear-gradient(var(--angle-oblique), var(--color-priamry-1), var(--color-priamry-3));
-    transform: rotate(-15deg);
-    box-shadow:
-        var(--shadow-high);
-}
-
-@media (min-width : 550px) {
-    .nav img {
-        inline-size: clamp(80px, -2.5rem + 40vw, 100px);
-        max-inline-size: 100%;
-        block-size: clamp(80px, -2.5rem + 40vw, 100px);
-    }
-}
-
-.link {
-    position: relative;
-}
-
-.blurry {
-    position: absolute;
-    filter: blur(40px);
-    transform: scale(2);
+    block-size: var(--length-fluid-medium);
+  }
 }
