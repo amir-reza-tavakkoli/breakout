@@ -1,0 +1,9 @@
+.index {
+    display: grid;
+    place-items: center;
+    white-space: nowrap;
+}
+
+.index h1 {
+    font-size: var(--length-fluid-heading-small);
+}
