@@ -34,6 +34,10 @@
   padding-block: var(--length-16);
 }
 
+:where(.list .overall) {
+  font-size: 0.875rem;
+}
 :where(.list .name) {
   font-size: var(--length-20);
+  font-family: "inter-bold";
 }
