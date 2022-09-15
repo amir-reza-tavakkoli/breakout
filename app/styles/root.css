@@ -26,7 +26,7 @@
   --length-coarse-min: 40px;
   --length-max: 10000px;
 
-  --length-fluid-heading-small:clamp(1.5rem, 1.25rem + 1.3vw, 1.75rem);
+  --length-fluid-heading-small: clamp(1.5rem, 1.25rem + 1.3vw, 1.75rem);
   --length-fluid-small: clamp(60px, -2.5rem + 35vw, 70px);
   --length-fluid-medium: clamp(80px, -2.5rem + 40vw, 90px);
 
@@ -74,9 +74,11 @@
 }
 
 :where(html) {
-  background: linear-gradient(var(--angle-oblique),
-      var(--color-priamry-1),
-      var(--color-priamry-2));
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-priamry-1),
+    var(--color-priamry-2)
+  );
 }
 
 :where(body) {

@@ -19,9 +19,11 @@
   block-size: var(--length-fluid-small);
   padding-inline-end: var(--optical-alignment);
   aspect-ratio: 1/1;
-  background: linear-gradient(var(--angle-oblique),
-      var(--color-priamry-1),
-      var(--color-priamry-3));
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-priamry-1),
+    var(--color-priamry-3)
+  );
   transform: rotate(-16deg);
   border-radius: var(--length-max);
   box-shadow: var(--shadow-high);

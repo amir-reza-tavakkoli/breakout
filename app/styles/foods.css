@@ -11,17 +11,21 @@
   aspect-ratio: 1/1;
 }
 
-:where(.list a>span) {
+:where(.list a > span) {
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-
 :where(.list li) {
   margin-block: var(--length-8);
   padding-inline: var(--length-24);
-  background: linear-gradient(var(--angle-oblique), var(--color-priamry-1) 0 20%, var(--color-priamry-3)) 20% 100%;
+  background: linear-gradient(
+      var(--angle-oblique),
+      var(--color-priamry-1) 0 20%,
+      var(--color-priamry-3)
+    )
+    20% 100%;
   box-shadow: var(--shadow-high);
   border-radius: var(--length-max);
 }
