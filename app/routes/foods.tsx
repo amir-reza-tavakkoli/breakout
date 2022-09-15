@@ -1,14 +1,15 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
+import type { LoaderFunction, json } from "@remix-run/node";
+import type{ LinksFunction } from "@remix-run/react/dist/routeModules";
+
 import type { Food } from "@prisma/client";
 
-import stylesUrl from "~/styles/foods.css";
 import { db } from "~/utils/db.server";
-import { LinksFunction } from "@remix-run/react/dist/routeModules";
+
+import styles from "~/styles/foods.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
+  return [{ rel: "stylesheet", href: styles }];
 };
 
 // type LoaderData = {

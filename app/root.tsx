@@ -18,8 +18,8 @@ import {
 import { HomeNav } from "./components/home-nav";
 import { SearchBar } from "./components/search-bar";
 
-import stylesUrl from "~/styles/root.css";
 import rootStyles from "~/../node_modules/sanitize.css/sanitize.css";
+import styles from "~/styles/root.css";
 import homeNavStyles from "~/styles/home-nav.css";
 import searchBarStyles from "~/styles/search-bar.css";
 import icon from "~/../public/favicon.png";
@@ -28,7 +28,7 @@ export const LOCALSTORGAE_PREFIX = "liked-item-";
 
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: stylesUrl },
+    { rel: "stylesheet", href: styles },
     { rel: "stylesheet", href: rootStyles },
     { rel: "stylesheet", href: homeNavStyles },
     { rel: "stylesheet", href: searchBarStyles },

@@ -1,17 +1,18 @@
+import { ComponentProps } from "react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { json, MetaFunction } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/react/dist/routeModules";
+
 import type { Food, Hierarchy, Status } from "@prisma/client";
 
 import { Card } from "~/components/card";
-
 import { db } from "~/utils/db.server";
-import { LinksFunction } from "@remix-run/react/dist/routeModules";
-import stylesUrl from "~/styles/card.css";
-import { ComponentProps } from "react";
+
+import cardStyles from "~/styles/card.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
+  return [{ rel: "stylesheet", href: cardStyles }];
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -51,7 +52,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   return json(data);
 };
 
-export default function Route() {
+export default function FoodName() {
   const data = useLoaderData<ComponentProps<typeof Card>>();
   return (
     <>

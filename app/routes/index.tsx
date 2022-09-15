@@ -1,9 +1,9 @@
-import stylesUrl from "~/styles/index.css";
-import { db } from "~/utils/db.server";
-import { LinksFunction } from "@remix-run/react/dist/routeModules";
+import type { LinksFunction } from "@remix-run/react/dist/routeModules";
+
+import styles from "~/styles/index.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
+  return [{ rel: "stylesheet", href: styles }];
 };
 
 export default function Index() {

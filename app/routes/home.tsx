@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+
 import { LOCALSTORGAE_PREFIX } from "~/root";
 
 export default function Home() {
