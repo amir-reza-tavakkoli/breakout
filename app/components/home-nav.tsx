@@ -1,11 +1,13 @@
 import { Link } from "@remix-run/react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import icon from "~/../public/favicon.png";
 
 export const HomeNav = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
-    <nav className="nav">
-      <Link to="/">
+    <motion.nav className="nav" initial={{y: shouldReduceMotion ? -50 : -200}} animate={{y:0}}>
+      <Link to="/" rel="icon">
         <span className="nonvisual">Home Page</span>
         <img
           src={icon}
@@ -16,6 +18,6 @@ export const HomeNav = () => {
         />
         <img src={icon} alt="Logo" width={100} height={100} />
       </Link>
-    </nav>
+    </motion.nav>
   );
 };

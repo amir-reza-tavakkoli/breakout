@@ -1,9 +1,15 @@
+
 :where(.nav) {
   display: flex;
   justify-content: center;
   inline-size: 100%;
   max-block-size: min-content;
   padding-block: min(var(--length-16), 24px);
+}
+
+:where(.nav a:hover, .nav a:active, .nav a:focus) {
+  animation: float ease-out 1s infinite alternate;
+  /* transform: translateX(0px) translateY(0x); */
 }
 
 :where(.nav a) {

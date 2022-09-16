@@ -1,5 +1,6 @@
 import type { Food, Status } from "@prisma/client";
 import { Like } from "./like";
+import {motion} from "framer-motion"
 
 type CardProps = {
     item: Food;
@@ -18,7 +19,7 @@ export const Card = ({
     type = "Food",
 }: CardProps) => {
     return (
-        <dl className="card" aria-label="Item">
+        <motion.dl className="card" aria-label="Item" initial={{opacity : 0.8}} animate={{opacity:1}} transition={{delay: 0.5}}>
             <dt className="nonvisual">Name</dt>
             <dd className="name">{item.name}</dd>
 
@@ -74,6 +75,6 @@ export const Card = ({
             <dd className="heart">
                 <Like name={item.name}></Like>
             </dd>
-        </dl>
+        </motion.dl>
     );
 };

@@ -17,6 +17,10 @@
   margin-block: min(28px, var(--length-16));
 }
 
+:where(.search button:hover,.search button:active,.search button:focus) {
+  animation: float ease-out 1s infinite alternate;
+}
+
 :where(.search button) {
   box-shadow: var(--shadow-high);
   flex-grow: 0;
@@ -24,8 +28,8 @@
   align-self: center;
   border-radius: var(--length-max);
   border: none;
-  inline-size: clamp(60px, 12vw + 0.875rem, 80px);
-  block-size: clamp(60px, 12vw + 0.875rem, 80px);
+  inline-size: var(--length-fluid-small);
+  block-size: var(--length-fluid-small);
   margin: 0.75rem;
   margin-inline-start: 0.5rem;
   margin-inline-end: 1.25rem;
@@ -44,7 +48,7 @@
 
 :where(.search input) {
   flex-grow: 1;
-  block-size: clamp(60px, 12vw + 0.875rem, 80px);
+  block-size: var(--length-fluid-small);
   min-inline-size: 40px;
   margin-inline: 0.75rem;
   margin-block: 0.75rem;
@@ -87,10 +91,11 @@
 }
 
 :where(.search .popup) {
+  position: absolute;
   inline-size: min(50%, var(--length-min-layout));
   max-inline-size: calc(var(--length-medium-layout) + 14vw);
   block-size: max-content;
-  max-block-size: 25vh;
+  max-block-size: 35vh;
   padding-block: 1rem;
   background: linear-gradient(
     var(--angle-oblique),
@@ -98,26 +103,23 @@
     var(--color-priamry-1),
     var(--color-priamry-3)
   );
-  position: absolute;
   top: 0px;
   transform: translateY(-100%);
   border-radius: min(var(--length-48), 48px);
   padding-inline: 5rem;
   overflow: auto;
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+:where(.search .popup button) {}
 
 :where(.search .popup li) {
   padding-inline: min(100px, var(--length-80));
   white-space: nowrap;
   min-width: max-content;
-  /* background-color: rgba(209, 209, 209, 0.157); */
-  /* background-color: var(--color-priamry-1); */
-  /* border-radius: var(--length-max); */
-  /* background: linear-gradient(var(--angle-oblique),
-            var(--color-gray),
-            var(--color-priamry-1),
-            var(--color-priamry-1)); */
-  /* box-shadow: var(--shadow-high); */
   margin-block: min(16px, var(--length-8));
 }

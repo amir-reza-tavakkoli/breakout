@@ -10,6 +10,16 @@
   font-weight: bold;
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
 :where(:root) {
   --length-2: 0.125rem;
   --length-4: 0.25rem;

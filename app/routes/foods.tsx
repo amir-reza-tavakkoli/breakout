@@ -12,9 +12,7 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 };
 
-// type LoaderData = {
-//     foods: Array<{name:string,avatarUrl : string,statusId:string} > | null;
-// };
+
 type LoaderData = {
   foods: Array<Pick<Food, "name" | "avatarUrl" | "statusId">> | null;
 };
