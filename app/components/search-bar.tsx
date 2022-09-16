@@ -4,21 +4,37 @@ import { Link } from "@remix-run/react";
 export const SearchBar = () => {
     const [popup, setPopup] = useState<boolean>(false);
     const [filteredItems, setFilteredItems] = useState<Array<string>>([]);
+    const [fetchError, setfetchError] = useState<boolean>(false);
     // : ChangeEventHandler<HTMLInputElement>
     const allItemsRef = useRef<Array<string>>([]);
 
+    async function fetchItems() {
+        const response = await fetch("/items");
+
+        if (!response.ok) {
+            setfetchError(true);
+            throw new Error("Bad request");
+        }
+
+        if (fetchError) {
+            setfetchError(false);
+        }
+
+        const json = await response.json();
+
+        if (!Array.isArray(json)) {
+            throw new Error("Bad response");
+        }
+
+        json.map((item: string) => {
+            if (item && typeof item === "string") return item.toLowerCase();
+        });
+
+        allItemsRef.current = json;
+    }
+
     useEffect(() => {
-        (async () => {
-            try {
-                const response = await fetch("/items");
-                const json = await response.json();
-                json.map((item: string) => {
-                    if (item && typeof item === "string")
-                        return item.toLowerCase();
-                });
-                allItemsRef.current = json;
-            } catch (error) {}
-        })();
+        (async () => await fetchItems())();
     }, [allItemsRef]);
 
     function closePopup() {
@@ -26,22 +42,21 @@ export const SearchBar = () => {
             setPopup(false);
         }
     }
-    // React.ChangeEvent <
-    //     HTMLElement >
-    function handleSearch(e: any) {
+
+    function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         e.target.value ? setPopup(true) : setPopup(false);
-        console.log(filteredItems);
-        let filteredResult = allItemsRef.current.filter((item) => {
+
+        const filteredResult = allItemsRef.current.filter((item) => {
             if (item && typeof item === "string") {
                 return item.toLowerCase().includes(e.target.value)
                     ? item
                     : false;
             }
         });
-        console.log("ss is", filteredResult);
         setFilteredItems(filteredResult);
     }
+    console.log(filteredItems, allItemsRef.current);
     return (
         <div className="search">
             {popup ? (
@@ -49,11 +64,11 @@ export const SearchBar = () => {
                     className="popup"
                     aria-live="polite"
                     aria-atomic={true}
-                    aria-label="Search "
+                    aria-label="Search"
                     aria-relevant="all"
                 >
                     <p className="nonvisual">Result:</p>
-                    {allItemsRef.current.length > 0 ? (
+                    {!fetchError ? (
                         <>
                             {filteredItems.length > 0 ? (
                                 <ul>
@@ -68,11 +83,16 @@ export const SearchBar = () => {
                                     ))}
                                 </ul>
                             ) : (
-                                <p>Nothing ...</p>
+                                <p>Nothing found</p>
                             )}
                         </>
                     ) : (
-                        <p>Searcing ...</p>
+                        <>
+                            <p>Error occured </p>
+                            <button type="button" onClick={fetchItems}>
+                                Try Again
+                            </button>
+                        </>
                     )}
                 </article>
             ) : null}
@@ -86,7 +106,7 @@ export const SearchBar = () => {
                     name="search"
                     id="__search"
                     placeholder="Search items ..."
-                    autoComplete="on"
+                    autoComplete="off"
                 />
                 <button type="submit">
                     <span className="nonvisual">Submit Search</span>

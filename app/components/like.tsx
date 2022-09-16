@@ -8,25 +8,30 @@ type LikeProps = {
 
 export const Like = ({ name }: LikeProps) => {
   const [liked, setLiked] = useState<boolean>(
-    typeof window !== "undefined" &&
+    typeof window !== "undefined" && localStorage !== undefined &&
       !!localStorage.getItem(LOCALSTORGAE_PREFIX + name)
   );
 
   function handleLike() {
-    if (typeof window === "undefined") {
+    if (typeof window === "undefined" || localStorage === undefined) {
       throw new Error("Window is not defined");
     }
 
     if (!name) {
       throw new Error("name is possibly empty");
     }
-
-    if (liked) {
-      localStorage.removeItem(LOCALSTORGAE_PREFIX + name);
-      setLiked(false);
-    } else {
-      localStorage.setItem(LOCALSTORGAE_PREFIX + name, "true");
-      setLiked(true);
+    
+    try {
+      if (liked) {
+        localStorage.removeItem(LOCALSTORGAE_PREFIX + name);
+        setLiked(false);
+      } else {
+        localStorage.setItem(LOCALSTORGAE_PREFIX + name, "true");
+        setLiked(true);
+      }
+    }
+    catch (error) {
+      throw new Error("Something went wrong")
     }
   }
 

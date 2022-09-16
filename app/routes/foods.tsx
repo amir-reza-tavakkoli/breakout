@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction, json } from "@remix-run/node";
 import type{ LinksFunction } from "@remix-run/react/dist/routeModules";
 
 import type { Food } from "@prisma/client";

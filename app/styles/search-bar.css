@@ -87,7 +87,7 @@
 }
 
 :where(.search .popup) {
-  inline-size: max(50%, var(--length-min-layout));
+  inline-size: min(50%, var(--length-min-layout));
   max-inline-size: calc(var(--length-medium-layout) + 14vw);
   block-size: max-content;
   max-block-size: 25vh;
@@ -109,6 +109,8 @@
 
 :where(.search .popup li) {
   padding-inline: min(100px, var(--length-80));
+  white-space: nowrap;
+  min-width: max-content;
   /* background-color: rgba(209, 209, 209, 0.157); */
   /* background-color: var(--color-priamry-1); */
   /* border-radius: var(--length-max); */
