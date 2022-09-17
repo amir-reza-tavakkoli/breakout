@@ -7,8 +7,8 @@
 }
 
 :where(.nav a) {
-  border-radius: var(--length-max);
   position: relative;
+  border-radius: var(--length-max);
 }
 
 :where(.nav a:hover, .nav a:active, .nav a:focus) {

@@ -1,23 +1,22 @@
-.index {
+:where(.index) {
   display: grid;
   place-items: center;
   max-width: 100%;
-  /* white-space: nowrap; */
   padding-inline: 10%;
   text-align: justify;
 }
 
-.index h1 {
+:where(.index h1) {
   white-space: nowrap;
   font-size: var(--length-fluid-heading-small);
 }
 
-.index dd:first-of-type {
+:where(.index dd:first-of-type) {
   /* max-width: 100%; */
   white-space: wrap;
 }
 
-.index .about {
+:where(.index .about) {
   display: flex;
   /* max-width: min(100%, 500px); */
   flex-direction: column;

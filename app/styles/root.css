@@ -111,7 +111,7 @@
     1.4px 0.9px 12.1px -7px rgba(0, 0, 0, 0.029),
     6.1px 4.2px 16.9px -7px rgba(0, 0, 0, 0.035),
     14.2px 9.8px 24.1px -7px rgba(0, 0, 0, 0.043),
-    28.7px 19.8px 35.3px -7px rgba(0, 0, 0, 0.056);
+    28.7px 19.8px 35.3px -28px rgba(0, 0, 0, 0.056);
 }
 
 :where(.nonvisual) {

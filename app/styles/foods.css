@@ -1,12 +1,12 @@
 :where(.list) {
   display: flex;
   flex-direction: column;
-  padding-inline: var(--length-16);
+  padding-inline: min(var(--length-16),24px);
 }
 
 :where(.list li) {
-  margin-block: var(--length-8);
-  padding-inline: var(--length-24);
+  margin-block: min(var(--length-8), 16px);
+  padding-inline: min(var(--length-24), 32px);
   background: linear-gradient(var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
       var(--color-priamry-3)) 20% 100%;
@@ -18,8 +18,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-block: min(var(--length-16), 28px);
   text-decoration: none;
-  padding-block: var(--length-16);
 }
 
 :where(.list a > span) {
@@ -29,17 +29,17 @@
 }
 
 :where(.list img) {
-  max-block-size: var(--length-48);
-  max-inline-size: var(--length-48);
-  padding-inline-end: var(--length-8);
+  max-block-size: min(var(--length-48), 72px);
+  max-inline-size: min(var(--length-48), 72px);
+  padding-inline-end: min(var(--length-8), 12px);
   aspect-ratio: 1/1;
 }
 
-:where(.list ._overall) {
-  font-size: 0.875rem;
+:where(.list ._name) {
+  font-size: min(var(--length-20), 24px);
+  font-family: "inter-bold";
 }
 
-:where(.list ._name) {
-  font-size: var(--length-20);
-  font-family: "inter-bold";
+:where(.list ._overall) {
+  font-size: min(var(--length-14), 20px);
 }

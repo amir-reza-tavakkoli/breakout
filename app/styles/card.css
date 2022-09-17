@@ -27,7 +27,7 @@
     var(--color-priamry-1),
     var(--color-priamry-1)
   );
-  filter: drop-shadow(2px);
+  filter: drop-shadow(4px);
   box-shadow: var(--shadow-high);
 }
 
@@ -36,13 +36,13 @@
   align-items: center;
   margin-inline: 0px;
   margin-block: 0px;
-  font-size: clamp(0.875rem, 0.725rem + 0.8vw, 1rem);
+  font-size:min(var(--length-12), 16px) ;
   text-align: center;
 }
 
 :where(.card ._name) {
   grid-area: name;
-  font-size: 1.75rem;
+  font-size: var(--length-fluid-heading-small);
   font-family: "inter-bold";
   white-space: nowrap;
 }
@@ -51,8 +51,8 @@
   grid-area: image;
   justify-self: center;
   align-self: center;
-  inline-size: clamp(4rem, 3rem + 3.5vw, 6rem);
-  block-size: clamp(4rem, 3rem + 3.5vw, 6rem);
+  inline-size: var(--length-fluid-medium);
+  block-size: var(--length-fluid-medium);
 }
 
 :where(.card ._img img) {
@@ -63,11 +63,13 @@
 
 :where(.card ._overall) {
   grid-area: overall;
+  font-size: min(var(--length-16), 20px);
   white-space: nowrap;
 }
 
 :where(.card ._advice) {
   grid-area: advice;
+  font-size: min(var(--length-16), 20px)
 }
 
 :where(.card ._categories) {
@@ -83,8 +85,7 @@
 }
 
 :where(.card ._description) {
-  grid-area: description;
-  font-size: var(--length-12);
+  grid-area: description;;
 }
 
 :where(.card button) {
@@ -98,7 +99,7 @@
   align-self: center;
   inline-size: min(var(--length-24), 36px);
   block-size: min(var(--length-24), 36px);
-  margin-block-end: var(--length-16);
+  margin-block-end: min(var(--length-16), 28px);
 }
 
 :where(.card .like:active) {
