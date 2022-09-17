@@ -1,0 +1,114 @@
+:where(.card) {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(1rem, auto);
+  grid-template-areas:
+    "e3 e3           e3           e3           e3           e3           e3"
+    "e4 e4           e4           e4           image        image        image"
+    "e1 name         name         name         image        image        image"
+    "e1 overall      overall      overall      overall      overall      e2"
+    "e1 advice       advice       advice       advice       advice       e2"
+    "e1 advice       advice       advice       advice       advice       e2"
+    "e1 types        types        types        types        types        e2"
+    "e1 description  description  description  description  description  e2"
+    "e1 description  description  description  description  description  e2"
+    "e1 description  description  description  description  description  e2"
+    "e5 e5           e5           heart        e6           e6           e6";
+  align-items: center;
+  justify-items: start;
+  gap: max(12px, var(--length-8));
+  inline-size: 90%;
+  max-block-size: var(--length-medium-layout);
+  margin-inline: auto;
+  margin-block-end: 20vh;
+  border-radius: min(var(--length-48), 48px);
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-gray),
+    var(--color-priamry-1),
+    var(--color-priamry-1)
+  );
+  filter: drop-shadow(4px);
+  box-shadow: var(--shadow-high);
+}
+
+:where(.card *) {
+  justify-content: start;
+  align-items: center;
+  margin-inline: 0px;
+  margin-block: 0px;
+  font-size: min(var(--length-12), 16px);
+  text-align: center;
+}
+
+:where(.card ._name) {
+  grid-area: name;
+  font-size: var(--length-fluid-heading-small);
+  font-family: "inter-bold";
+  white-space: nowrap;
+}
+
+:where(.card ._img) {
+  grid-area: image;
+  justify-self: center;
+  align-self: center;
+  inline-size: var(--length-fluid-medium);
+  block-size: var(--length-fluid-medium);
+}
+
+:where(.card ._img img) {
+  inline-size: 100%;
+  block-size: 100%;
+  filter: drop-shadow(2px 4px 2px hsl(0deg 0% 0% / 0.4));
+}
+
+:where(.card ._overall) {
+  grid-area: overall;
+  font-size: min(var(--length-16), 20px);
+  white-space: nowrap;
+}
+
+:where(.card ._advice) {
+  grid-area: advice;
+  font-size: min(var(--length-16), 20px);
+}
+
+:where(.card ._categories) {
+  grid-area: types;
+  display: inline;
+}
+
+:where(.card ._categories a) {
+  text-decoration: none;
+}
+
+:where(.card ._categories li) {
+  max-inline-size: max-content;
+  padding-inline: min(var(--length-8), 12px);
+  padding-block: min(var(--length-2), 4px);
+  font-size: min(var(--length-10), 14px);
+  background-color: var(--color-priamry-2);
+  border-radius: var(--length-max);
+}
+
+:where(.card ._description) {
+  grid-area: description;
+}
+
+:where(.card button) {
+  border: none;
+  background-color: transparent;
+}
+
+:where(.card ._heart) {
+  grid-area: heart;
+  justify-self: center;
+  align-self: center;
+  inline-size: min(var(--length-24), 36px);
+  block-size: min(var(--length-24), 36px);
+  margin-block-end: min(var(--length-16), 28px);
+}
+
+:where(.card .like:active) {
+  animation: shake 1s;
+}

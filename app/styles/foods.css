@@ -1,0 +1,48 @@
+:where(.list) {
+  display: flex;
+  flex-direction: column;
+  padding-inline: min(var(--length-16), 24px);
+}
+
+:where(.list li) {
+  margin-block: min(var(--length-8), 16px);
+  padding-inline: min(var(--length-24), 32px);
+  background: linear-gradient(
+      var(--angle-oblique),
+      var(--color-priamry-1) 0 20%,
+      var(--color-priamry-3)
+    )
+    20% 100%;
+  box-shadow: var(--shadow-high);
+  border-radius: var(--length-max);
+}
+
+:where(.list a) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: min(var(--length-16), 28px);
+  text-decoration: none;
+}
+
+:where(.list a > span) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:where(.list img) {
+  max-block-size: min(var(--length-48), 72px);
+  max-inline-size: min(var(--length-48), 72px);
+  padding-inline-end: min(var(--length-8), 12px);
+  aspect-ratio: 1/1;
+}
+
+:where(.list ._name) {
+  font-size: min(var(--length-20), 24px);
+  font-family: "inter-bold";
+}
+
+:where(.list ._overall) {
+  font-size: min(var(--length-14), 20px);
+}
