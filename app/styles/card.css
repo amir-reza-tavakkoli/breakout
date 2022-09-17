@@ -20,6 +20,7 @@
   inline-size: 90%;
   max-block-size: var(--length-medium-layout);
   margin-inline: auto;
+  margin-block-end: 20vh;
   border-radius: min(var(--length-48), 48px);
   background: linear-gradient(var(--angle-oblique),
       var(--color-gray),
