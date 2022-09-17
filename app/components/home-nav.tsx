@@ -6,7 +6,11 @@ import icon from "~/../public/favicon.png";
 export const HomeNav = () => {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <motion.nav className="nav" initial={{y: shouldReduceMotion ? -50 : -200}} animate={{y:0}}>
+    <motion.nav
+      className="nav"
+      initial={{ y: shouldReduceMotion ? -50 : -200 }}
+      animate={{ y: 0 }}
+    >
       <Link to="/" rel="icon">
         <span className="nonvisual">Home Page</span>
         <img

@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { LoaderFunction, json } from "@remix-run/node";
-import type{ LinksFunction } from "@remix-run/react/dist/routeModules";
+import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 
 import type { Food } from "@prisma/client";
 
@@ -11,7 +11,6 @@ import styles from "~/styles/foods.css";
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 };
-
 
 type LoaderData = {
   foods: Array<Pick<Food, "name" | "avatarUrl" | "statusId">> | null;

@@ -17,7 +17,7 @@
   margin-block: min(28px, var(--length-16));
 }
 
-:where(.search button:hover,.search button:active,.search button:focus) {
+:where(.search button:hover, .search button:active, .search button:focus) {
   animation: float ease-out 1s infinite alternate;
 }
 
@@ -115,7 +115,8 @@
   align-items: center;
 }
 
-:where(.search .popup button) {}
+:where(.search .popup button) {
+}
 
 :where(.search .popup li) {
   padding-inline: min(100px, var(--length-80));
