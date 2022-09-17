@@ -77,9 +77,15 @@
   display: inline;
 }
 
+:where(.card ._categories a) {
+  text-decoration: none;
+}
+
 :where(.card ._categories li) {
   max-inline-size: max-content;
   padding-inline: min(var(--length-8), 12px);
+  padding-block: min(var(--length-2), 4px);
+  font-size: min(var(--length-10), 14px);
   background-color: var(--color-priamry-2);
   border-radius: var(--length-max);
 }

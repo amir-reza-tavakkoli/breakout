@@ -132,11 +132,9 @@
 }
 
 :where(html) {
-  background: linear-gradient(
-    var(--angle-oblique),
-    var(--color-priamry-1),
-    var(--color-priamry-2)
-  );
+  background: linear-gradient(var(--angle-oblique),
+      var(--color-priamry-1),
+      var(--color-priamry-2));
 }
 
 :where(body) {
@@ -152,6 +150,7 @@
 
 :where(*:focus-visible) {
   outline: var(--color-priamry-3) var(--length-static-extra-thick) dashed;
+  text-transform: capitalize;
 }
 
 :where(ul, ol, li, dt, dd, dl) {
