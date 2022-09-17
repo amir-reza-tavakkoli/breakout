@@ -132,9 +132,11 @@
 }
 
 :where(html) {
-  background: linear-gradient(var(--angle-oblique),
-      var(--color-priamry-1),
-      var(--color-priamry-2));
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-priamry-1),
+    var(--color-priamry-2)
+  );
 }
 
 :where(body) {

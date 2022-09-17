@@ -97,6 +97,7 @@ export const SearchBar = () => {
                   <ul>
                     {filteredItems.map((item, index) => (
                       <Link
+                        prefetch="intent"
                         key={index}
                         to={"/food/" + item}
                         onClick={closePopup}

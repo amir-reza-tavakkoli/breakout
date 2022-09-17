@@ -11,7 +11,7 @@ export const HomeNav = () => {
       initial={{ y: shouldReduceMotion ? -50 : -200 }}
       animate={{ y: 0 }}
     >
-      <Link to="/" rel="icon">
+      <Link prefetch="intent" to="/" rel="icon">
         <span className="nonvisual">Home Page</span>
         <img
           src={icon}

@@ -1,6 +1,8 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "@remix-run/react";
+
 import type { Food, Status } from "@prisma/client";
 import { Like } from "./like";
-import { AnimatePresence, motion } from "framer-motion";
 
 type CardProps = {
   item: Food;
@@ -63,7 +65,7 @@ export const Card = ({
                 {categories.map((item, index) =>
                   item.name ? (
                     <li key={index}>
-                      <a href={"/food/" + item.name}>{item.name}</a>
+                      <Link to={"/food/" + item.name}>{item.name}</Link>
                     </li>
                   ) : null
                 )}

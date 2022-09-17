@@ -3,7 +3,7 @@
   inset-block-end: 0px;
   inline-size: 100%;
   block-size: min-content;
-  min-block-size: min(var(--length-80),120px);
+  min-block-size: min(var(--length-80), 120px);
   margin-inline-start: auto;
   margin-block-end: -0.5rem;
   backdrop-filter: blur(var(--length-max));
@@ -23,16 +23,17 @@
   padding-block: min(var(--length-16), 28px);
   margin-inline: auto;
   margin-inline-start: 25%;
-  background: linear-gradient(var(--angle-oblique),
-      var(--color-gray),
-      var(--color-priamry-1),
-      var(--color-priamry-3));
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-gray),
+    var(--color-priamry-1),
+    var(--color-priamry-3)
+  );
   transform: translateY(-100%);
   border-radius: min(var(--length-48), 48px);
   padding-inline: min(var(--length-80), 100px);
   overflow-y: auto;
   overflow-x: hidden;
-
 }
 
 :where(.search ._popup p) {
@@ -66,9 +67,12 @@
   border: none;
   font-size: min(var(--length-12), 16px);
   border-radius: var(--length-max);
-  background: linear-gradient(var(--angle-oblique),
+  background: linear-gradient(
+      var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)) 20% 100%;
+      var(--color-priamry-3)
+    )
+    20% 100%;
   box-shadow: var(--shadow-high);
 }
 
@@ -81,9 +85,12 @@
   margin-block: min(var(--length-12), 16px);
   margin-inline-start: min(var(--length-8), 12px);
   margin-inline-end: min(var(--length-20), 24px);
-  background: linear-gradient(var(--angle-oblique),
+  background: linear-gradient(
+      var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)) 20% 100%;
+      var(--color-priamry-3)
+    )
+    20% 100%;
   border: none;
   border-radius: var(--length-max);
   box-shadow: var(--shadow-high);
@@ -106,7 +113,6 @@
 
   :where(.search ._popup) {
     margin-inline-start: 0px;
-
   }
 
   :where(.search input) {

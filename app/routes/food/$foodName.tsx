@@ -15,12 +15,30 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: cardStyles }];
 };
 
+export const meta: MetaFunction = ({
+  data,
+}: {
+  data: ComponentProps<typeof Card> | undefined;
+}) => {
+  if (!data) {
+    return {
+      title: "No food",
+      description: "No joke found",
+    };
+  }
+  return {
+    title: `"${data.item?.name}" food`,
+    description: `Find out about "${data.item?.name}" food`,
+  };
+};
+
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params || !params.foodName) {
     throw new Response("Not found.", {
       status: 404,
     });
   }
+
   const food: Food | null = await db.food.findUnique({
     where: {
       name: params.foodName[0].toUpperCase() + params.foodName.slice(1),
@@ -57,6 +75,14 @@ export const loader: LoaderFunction = async ({ params }) => {
   const data = { item: food, status, categories: typesId };
   return json(data);
 };
+
+export function ErrorBoundary() {
+  return (
+    <div className="error-container">
+      Something unexpected went wrong. Sorry about that.
+    </div>
+  );
+}
 
 export default function FoodName() {
   const data = useLoaderData<ComponentProps<typeof Card>>();

@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction, json, MetaFunction } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 
 import type { Food } from "@prisma/client";
@@ -23,6 +23,11 @@ type LoaderDataExtended = {
     }
   > | null;
 };
+
+export const meta: MetaFunction = ({}) => ({
+  title: `Some foods`,
+  description: `Here are some random foods`,
+});
 
 export const loader: LoaderFunction = async () => {
   const data: LoaderData = {
@@ -54,17 +59,30 @@ export const loader: LoaderFunction = async () => {
   return json({ foods: withStatus });
 };
 
+export function ErrorBoundary() {
+  return (
+    <div className="error-container">
+      Something unexpected went wrong. Sorry about that.
+    </div>
+  );
+}
+
 export default function Foods() {
   const data = useLoaderData<LoaderDataExtended>();
-  console.log(data);
+
+  const url =
+    "https://ik.imagekit.io/jqgidj1tv/pizza_1_2sezNde1j.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662724762664";
+
   return (
     <ul className="list">
       {data.foods &&
         data.foods.map((food, index) => (
           <li key={index}>
-            <Link to={"/food" + "/" + food.name}>
+            <Link prefetch="intent" to={"/food" + "/" + food.name}>
               <span>
-                {food.avatarUrl ? <img src={food.avatarUrl} alt="" /> : null}
+                {food.avatarUrl || url ? (
+                  <img src={url || food.avatarUrl} alt="" />
+                ) : null}
                 <span className="_name">{food.name}</span>
               </span>
               <span className="_overall">{food.status}</span>

@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/react/dist/routeModules";
+import type { LinksFunction } from "@remix-run/node";
 
 import styles from "~/styles/index.css";
 

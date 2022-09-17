@@ -1,29 +1,32 @@
 :where(.home) {
-    display: flex;
-    flex-direction: column;
-    padding-inline: min(var(--length-16), 24px);
+  display: flex;
+  flex-direction: column;
+  padding-inline: min(var(--length-16), 24px);
 }
 
 :where(.home p) {
-    padding-inline-start: min(var(--length-12), 20px);
-    font-size: min(var(--length-32), 40px);
-    font-family: "inter-bold";
-    white-space: nowrap;
+  padding-inline-start: min(var(--length-12), 20px);
+  font-size: min(var(--length-32), 40px);
+  font-family: "inter-bold";
+  white-space: nowrap;
 }
 
 :where(.home a) {
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
 :where(.home ._item) {
-    margin-block: min(var(--length-8), 16px);
-    padding-inline: min(var(--length-24), 32px);
-    padding-block: min(var(--length-16), 28px);
-    background: linear-gradient(var(--angle-oblique),
-            var(--color-priamry-1) 0 20%,
-            var(--color-priamry-3)) 20% 100%;
-    box-shadow: var(--shadow-high);
-    border-radius: var(--length-max);
+  margin-block: min(var(--length-8), 16px);
+  padding-inline: min(var(--length-24), 32px);
+  padding-block: min(var(--length-16), 28px);
+  background: linear-gradient(
+      var(--angle-oblique),
+      var(--color-priamry-1) 0 20%,
+      var(--color-priamry-3)
+    )
+    20% 100%;
+  box-shadow: var(--shadow-high);
+  border-radius: var(--length-max);
 }

@@ -1,15 +1,18 @@
 :where(.list) {
   display: flex;
   flex-direction: column;
-  padding-inline: min(var(--length-16),24px);
+  padding-inline: min(var(--length-16), 24px);
 }
 
 :where(.list li) {
   margin-block: min(var(--length-8), 16px);
   padding-inline: min(var(--length-24), 32px);
-  background: linear-gradient(var(--angle-oblique),
+  background: linear-gradient(
+      var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)) 20% 100%;
+      var(--color-priamry-3)
+    )
+    20% 100%;
   box-shadow: var(--shadow-high);
   border-radius: var(--length-max);
 }
