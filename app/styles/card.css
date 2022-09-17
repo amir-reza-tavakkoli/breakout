@@ -21,12 +21,10 @@
   max-block-size: var(--length-medium-layout);
   margin-inline: auto;
   border-radius: min(var(--length-48), 48px);
-  background: linear-gradient(
-    var(--angle-oblique),
-    var(--color-gray),
-    var(--color-priamry-1),
-    var(--color-priamry-1)
-  );
+  background: linear-gradient(var(--angle-oblique),
+      var(--color-gray),
+      var(--color-priamry-1),
+      var(--color-priamry-1));
   filter: drop-shadow(2px);
   box-shadow: var(--shadow-high);
 }
@@ -99,4 +97,8 @@
   inline-size: min(var(--length-24), 36px);
   block-size: min(var(--length-24), 36px);
   margin-block-end: var(--length-16);
+}
+
+:where(.card .like:active) {
+  animation: shake 1s;
 }
