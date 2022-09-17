@@ -15,6 +15,16 @@ export const meta: MetaFunction = ({}) => ({
   description: `Here are some liked foods`,
 });
 
+
+export function ErrorBoundary() {
+    return (
+        <div className="error-container">
+            Something unexpected went wrong. Sorry about that.
+        </div>
+    );
+}
+
+
 export default function Home() {
   const [likedItems, setLikedItems] = useState<Array<string>>([]);
   useEffect(() => {

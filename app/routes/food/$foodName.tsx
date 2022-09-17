@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useCatch, useLoaderData } from "@remix-run/react";
 import { json, MetaFunction } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
@@ -51,6 +51,8 @@ export const loader: LoaderFunction = async ({ params }) => {
     });
   }
 
+
+
   const status: Pick<Status, "overall" | "advice"> | null =
     await db.status.findUnique({
       where: { id: food.statusId },
@@ -75,6 +77,19 @@ export const loader: LoaderFunction = async ({ params }) => {
   const data = { item: food, status, categories: typesId };
   return json(data);
 };
+
+export function CatchBoundary() {
+    const caught = useCatch();
+
+    if (caught.status === 404) {
+        return (
+            <div className="error-container">
+                No such food
+            </div>
+        );
+    }
+    throw new Error(`Unexpected caught response with status: ${caught.status}`);
+}
 
 export function ErrorBoundary() {
   return (

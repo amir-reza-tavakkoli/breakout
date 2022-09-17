@@ -177,6 +177,15 @@
   overflow-x: hidden;
 }
 
+:where(.error-container){
+  display: grid;
+  place-items: center;
+  min-height: 25vh;
+  font-size: min(var(--length-32),48px);
+  font-family: "inter-bold";
+  color: hsla(0, 74%, 42%, 0.866);
+}
+
 @media (min-width: 34.375rem) {
   :where(.main) {
     inline-size: max(90%, var(--length-min-layout));

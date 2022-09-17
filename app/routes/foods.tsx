@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useCatch, useLoaderData } from "@remix-run/react";
 import { LoaderFunction, json, MetaFunction } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 
@@ -38,7 +38,9 @@ export const loader: LoaderFunction = async () => {
   };
 
   if (!data.foods) {
-    throw new Error("no food");
+      throw new Response("Not found.", {
+          status: 404,
+      });
   }
 
   const withStatus = await Promise.all(
@@ -58,6 +60,17 @@ export const loader: LoaderFunction = async () => {
   );
   return json({ foods: withStatus });
 };
+
+
+export function CatchBoundary() {
+    const caught = useCatch();
+
+    if (caught.status === 404) {
+        return <div className="error-container">No food found</div>;
+    }
+    throw new Error(`Unexpected caught response with status: ${caught.status}`);
+}
+
 
 export function ErrorBoundary() {
   return (
