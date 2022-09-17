@@ -11,10 +11,12 @@
   margin-inline: auto;
   margin-block-end: 20vh;
   border-radius: min(var(--length-48), 48px);
-  background: linear-gradient(var(--angle-oblique),
-      var(--color-gray),
-      var(--color-priamry-1),
-      var(--color-priamry-1));
+  background: linear-gradient(
+    var(--angle-oblique),
+    var(--color-gray),
+    var(--color-priamry-1),
+    var(--color-priamry-1)
+  );
   filter: drop-shadow(4px);
   box-shadow: var(--shadow-high);
   letter-spacing: 0.5px;
@@ -25,7 +27,6 @@
   display: flex;
   flex-direction: column;
 }
-
 
 :where(.index h1) {
   padding-block-start: min(var(--length-8), 16px);

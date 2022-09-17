@@ -177,11 +177,11 @@
   overflow-x: hidden;
 }
 
-:where(.error-container){
+:where(.error-container) {
   display: grid;
   place-items: center;
   min-height: 25vh;
-  font-size: min(var(--length-32),48px);
+  font-size: min(var(--length-32), 48px);
   font-family: "inter-bold";
   color: hsla(0, 74%, 42%, 0.866);
 }

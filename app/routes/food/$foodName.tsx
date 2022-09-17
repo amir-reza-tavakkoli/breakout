@@ -51,8 +51,6 @@ export const loader: LoaderFunction = async ({ params }) => {
     });
   }
 
-
-
   const status: Pick<Status, "overall" | "advice"> | null =
     await db.status.findUnique({
       where: { id: food.statusId },
@@ -79,16 +77,12 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export function CatchBoundary() {
-    const caught = useCatch();
+  const caught = useCatch();
 
-    if (caught.status === 404) {
-        return (
-            <div className="error-container">
-                No such food
-            </div>
-        );
-    }
-    throw new Error(`Unexpected caught response with status: ${caught.status}`);
+  if (caught.status === 404) {
+    return <div className="error-container">No such food</div>;
+  }
+  throw new Error(`Unexpected caught response with status: ${caught.status}`);
 }
 
 export function ErrorBoundary() {
