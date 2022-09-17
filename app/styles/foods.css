@@ -4,28 +4,12 @@
   padding-inline: var(--length-16);
 }
 
-:where(.list img) {
-  max-block-size: var(--length-48);
-  max-inline-size: var(--length-48);
-  padding-inline-end: var(--length-8);
-  aspect-ratio: 1/1;
-}
-
-:where(.list a > span) {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
 :where(.list li) {
   margin-block: var(--length-8);
   padding-inline: var(--length-24);
-  background: linear-gradient(
-      var(--angle-oblique),
+  background: linear-gradient(var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)
-    )
-    20% 100%;
+      var(--color-priamry-3)) 20% 100%;
   box-shadow: var(--shadow-high);
   border-radius: var(--length-max);
 }
@@ -38,10 +22,24 @@
   padding-block: var(--length-16);
 }
 
-:where(.list .overall) {
+:where(.list a > span) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:where(.list img) {
+  max-block-size: var(--length-48);
+  max-inline-size: var(--length-48);
+  padding-inline-end: var(--length-8);
+  aspect-ratio: 1/1;
+}
+
+:where(.list ._overall) {
   font-size: 0.875rem;
 }
-:where(.list .name) {
+
+:where(.list ._name) {
   font-size: var(--length-20);
   font-family: "inter-bold";
 }

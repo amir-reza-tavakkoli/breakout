@@ -65,9 +65,9 @@ export default function Foods() {
             <Link to={"/food" + "/" + food.name}>
               <span>
                 {food.avatarUrl ? <img src={food.avatarUrl} alt="" /> : null}
-                <span className="name">{food.name}</span>
+                <span className="_name">{food.name}</span>
               </span>
-              <span className="overall">{food.status}</span>
+              <span className="_overall">{food.status}</span>
             </Link>
           </li>
         ))}

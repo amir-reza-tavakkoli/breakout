@@ -80,7 +80,7 @@ export const SearchBar = () => {
       <AnimatePresence>
         {popup ? (
           <motion.article
-            className="popup"
+            className="_popup"
             aria-live="polite"
             aria-atomic={true}
             aria-label="Search"

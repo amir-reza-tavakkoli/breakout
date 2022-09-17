@@ -29,7 +29,7 @@ export const Card = ({
         exit={{ opacity: 0 }}
       >
         <dt className="nonvisual">Name</dt>
-        <dd className="name">{item.name}</dd>
+        <dd className="_name">{item.name}</dd>
 
         <dt className="nonvisual">Type</dt>
         <dd className="nonvisual">{type}</dd>
@@ -37,7 +37,7 @@ export const Card = ({
         {item.avatarUrl || url ? (
           <>
             <dt className="nonvisual">Avatar</dt>
-            <dd className="img">
+            <dd className="_img">
               <img src={url} alt="" role="presentation" />
             </dd>
           </>
@@ -45,20 +45,20 @@ export const Card = ({
         {status && status.overall ? (
           <>
             <dt className="nonvisual">Overall</dt>
-            <dd className="overall">{status.overall}</dd>
+            <dd className="_overall">{status.overall}</dd>
           </>
         ) : null}
 
         {status && status.advice ? (
           <>
             <dt className="nonvisual">Advice</dt>
-            <dd className="advice">{status.advice}</dd>
+            <dd className="_advice">{status.advice}</dd>
           </>
         ) : null}
         {!item.isCategory && categories && categories.length ? (
           <>
             <dt className="nonvisual">categories</dt>
-            <dd className="categories">
+            <dd className="_categories">
               <ul>
                 {categories.map((item, index) =>
                   item.name ? (
@@ -74,11 +74,11 @@ export const Card = ({
         {item.description ? (
           <>
             <dt className="nonvisual">Description</dt>
-            <dd className="description">{item.description}</dd>
+            <dd className="_description">{item.description}</dd>
           </>
         ) : null}
         <dt className="nonvisual">Favourite</dt>
-        <dd className="heart">
+        <dd className="_heart">
           <Like name={item.name}></Like>
         </dd>
       </motion.dl>

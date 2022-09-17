@@ -1,5 +1,4 @@
 :where(.search) {
-  /* display: flex; */
   justify-content: center;
   position: fixed;
   inset-block-end: 0px;
@@ -11,39 +10,47 @@
   backdrop-filter: blur(var(--length-max));
 }
 
+:where(.search ._popup) {
+  position: absolute;
+  inline-size: min(50%, var(--length-min-layout));
+  max-inline-size: calc(var(--length-medium-layout) + 14vw);
+  block-size: max-content;
+  max-block-size: 35vh;
+  padding-block: 1rem;
+  background: linear-gradient(var(--angle-oblique),
+      var(--color-gray),
+      var(--color-priamry-1),
+      var(--color-priamry-3));
+  top: 0px;
+  transform: translateY(-100%);
+  border-radius: min(var(--length-48), 48px);
+  padding-inline: 5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-inline: auto;
+  margin-inline-start: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+:where(.search ._popup p) {
+  text-align: center;
+}
+
+:where(.search ._popup li) {
+  text-align: center;
+  padding-inline: min(100px, var(--length-80));
+  white-space: nowrap;
+  min-width: max-content;
+  margin-block: min(16px, var(--length-8));
+}
+
 :where(.search form) {
   display: flex;
   justify-content: center;
   margin-block: min(28px, var(--length-16));
-}
-
-:where(.search button:hover, .search button:active, .search button:focus) {
-  animation: float ease-out 1s infinite alternate;
-}
-
-:where(.search button) {
-  box-shadow: var(--shadow-high);
-  flex-grow: 0;
-  flex-shrink: 0;
-  align-self: center;
-  border-radius: var(--length-max);
-  border: none;
-  inline-size: var(--length-fluid-small);
-  block-size: var(--length-fluid-small);
-  margin: 0.75rem;
-  margin-inline-start: 0.5rem;
-  margin-inline-end: 1.25rem;
-  background: linear-gradient(
-      var(--angle-oblique),
-      var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)
-    )
-    20% 100%;
-}
-
-:where(.search button svg) {
-  inline-size: 50%;
-  block-size: 50%;
 }
 
 :where(.search input) {
@@ -58,19 +65,52 @@
   padding-inline-end: 0.75rem;
   border: none;
   border-radius: var(--length-max);
-  background: linear-gradient(
-      var(--angle-oblique),
+  background: linear-gradient(var(--angle-oblique),
       var(--color-priamry-1) 0 20%,
-      var(--color-priamry-3)
-    )
-    20% 100%;
+      var(--color-priamry-3)) 20% 100%;
   box-shadow: var(--shadow-high);
+}
+
+:where(.search button) {
+  box-shadow: var(--shadow-high);
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-self: center;
+  border-radius: var(--length-max);
+  border: none;
+  inline-size: var(--length-fluid-small);
+  block-size: var(--length-fluid-small);
+  margin: 0.75rem;
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 1.25rem;
+  background: linear-gradient(var(--angle-oblique),
+      var(--color-priamry-1) 0 20%,
+      var(--color-priamry-3)) 20% 100%;
+}
+
+:where(.search button:hover, .search button:active, .search button:focus) {
+  animation: float ease-out 1s infinite alternate;
+}
+
+:where(.search button svg) {
+  inline-size: 50%;
+  block-size: 50%;
 }
 
 @media (min-width: 34.375rem) {
   :where(.search) {
     display: flex;
     justify-content: center;
+  }
+
+  :where(.search ._popup) {
+    margin-inline-start: 0px;
+
+  }
+
+  :where(.search input) {
+    block-size: var(--length-fluid-medium);
+    padding-inline-end: 1.25rem;
   }
 
   :where(.search form) {
@@ -83,44 +123,4 @@
     inline-size: var(--length-fluid-medium);
     block-size: var(--length-fluid-medium);
   }
-
-  :where(.search input) {
-    block-size: var(--length-fluid-medium);
-    padding-inline-end: 1.25rem;
-  }
-}
-
-:where(.search .popup) {
-  position: absolute;
-  inline-size: min(50%, var(--length-min-layout));
-  max-inline-size: calc(var(--length-medium-layout) + 14vw);
-  block-size: max-content;
-  max-block-size: 35vh;
-  padding-block: 1rem;
-  background: linear-gradient(
-    var(--angle-oblique),
-    var(--color-gray),
-    var(--color-priamry-1),
-    var(--color-priamry-3)
-  );
-  top: 0px;
-  transform: translateY(-100%);
-  border-radius: min(var(--length-48), 48px);
-  padding-inline: 5rem;
-  overflow: auto;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-:where(.search .popup button) {
-}
-
-:where(.search .popup li) {
-  padding-inline: min(100px, var(--length-80));
-  white-space: nowrap;
-  min-width: max-content;
-  margin-block: min(16px, var(--length-8));
 }

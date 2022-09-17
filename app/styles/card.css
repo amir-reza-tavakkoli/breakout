@@ -40,14 +40,14 @@
   text-align: center;
 }
 
-:where(.card .name) {
+:where(.card ._name) {
   grid-area: name;
   font-size: 1.75rem;
   font-family: "inter-bold";
   white-space: nowrap;
 }
 
-:where(.card .img) {
+:where(.card ._img) {
   grid-area: image;
   justify-self: center;
   align-self: center;
@@ -55,36 +55,36 @@
   block-size: clamp(4rem, 3rem + 3.5vw, 6rem);
 }
 
-:where(.card .img img) {
+:where(.card ._img img) {
   inline-size: 100%;
   block-size: 100%;
   filter: drop-shadow(2px 4px 2px hsl(0deg 0% 0% / 0.4));
 }
 
-:where(.card .advice) {
-  grid-area: advice;
-}
-
-:where(.card .description) {
-  grid-area: description;
-  font-size: var(--length-12);
-}
-
-:where(.card .overall) {
+:where(.card ._overall) {
   grid-area: overall;
   white-space: nowrap;
 }
 
-:where(.card .categories) {
+:where(.card ._advice) {
+  grid-area: advice;
+}
+
+:where(.card ._categories) {
   grid-area: types;
   display: inline;
 }
 
-:where(.card li) {
+:where(.card ._categories li) {
   max-inline-size: max-content;
   padding-inline: min(var(--length-8), 12px);
   background-color: var(--color-priamry-2);
   border-radius: var(--length-max);
+}
+
+:where(.card ._description) {
+  grid-area: description;
+  font-size: var(--length-12);
 }
 
 :where(.card button) {
@@ -92,7 +92,7 @@
   background-color: transparent;
 }
 
-:where(.card .heart) {
+:where(.card ._heart) {
   grid-area: heart;
   justify-self: center;
   align-self: center;
