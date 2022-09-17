@@ -13,7 +13,7 @@ import {
     ScrollRestoration,
     useActionData,
 } from "@remix-run/react";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { HomeNav } from "./components/home-nav";
 import { SearchBar } from "./components/search-bar";
@@ -82,14 +82,17 @@ export default function App() {
                 <Scripts />
                 <main className="main">
                     <HomeNav />
-                    <motion.div
-                        variants={containerVariant}
-                        initial={shouldReduceMotion ? undefined : "hidden"}
-                        animate={"visible"}
-                        // transition={{ duration: 0.5 }}
-                    >
-                        <Outlet />
-                    </motion.div>
+                    <AnimatePresence>
+                        <motion.div
+                            variants={containerVariant}
+                            initial={shouldReduceMotion ? undefined : "hidden"}
+                            animate={"visible"}
+                            exit={"hidden"}
+                        >
+                            <Outlet />
+                        </motion.div>
+                    </AnimatePresence>
+
                     <ScrollRestoration />
                     <LiveReload />
                 </main>

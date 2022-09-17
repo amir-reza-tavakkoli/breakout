@@ -8,12 +8,14 @@ export default function Home() {
         const filteredItems = Object.keys(localStorage).filter((item) =>
             item.startsWith(LOCALSTORGAE_PREFIX)
         );
+
         if (filteredItems.length) {
             setLikedItems(filteredItems);
         } else {
             setLikedItems(["Nothing is found"]);
         }
     }, []);
+
     return (
         <div>
             <h1>faviorites:</h1>

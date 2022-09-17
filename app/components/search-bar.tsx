@@ -89,7 +89,7 @@ export const SearchBar = () => {
                         aria-relevant="all"
                         initial={{ y: shouldReduceMotion ? undefined : "100%" }}
                         animate={{ y: "-100%" }}
-                        exit={{ y: shouldReduceMotion ? undefined : "100vh" }}
+                        exit={{ y: shouldReduceMotion ? undefined : "50vh" }}
                         transition={{duration:1, ease:"backOut"}}
                     >
                         <p className="nonvisual">Result:</p>
